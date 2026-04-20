@@ -35,37 +35,37 @@ namespace NumberGame
                 // Apply the game rules based on the remainder
                 if (remainder == 0)
                 {
-                    Console.WriteLine("Result: It's a draw! (+1 point)");
+                    Console.WriteLine("Result: Draw! (+1 point)");
                     totalScore += 1; // Increment by 1
                 }
                 else if (remainder % 2 == 0)// If remainder divided by 2 has 0 remainder, it is an even number
                 {
                     
-                    Console.WriteLine("Result: It's a WIN! (+3 points)");
+                    Console.WriteLine("Result:  WIN! (+3 points)");
                     totalScore += 3; // Increment by 3
                 }
                 else// If it is neither 0 nor even, it MUST be odd
                 {
                     
-                    Console.WriteLine("Result: It's a LOSS! (-3 points)");
+                    Console.WriteLine("Result: LOSS! (-3 points)");
                     totalScore -= 3; // Decrement by 3
                 }
 
                 // Show score at the end of the round
-                Console.WriteLine("Current Total Score: "+ totalScore);
+                Console.WriteLine(" Total Score: "+ totalScore);
             }
 
             // Final game results
                 Console.WriteLine("           GAME OVER             ");
-                Console.WriteLine($"Your Final Score is: {totalScore}");
+                Console.WriteLine("Your Final Score is: "+ totalScore);
 
             if (totalScore > 0)
             {
-                Console.WriteLine("Congratulations!  YOU WIN!");
+                Console.WriteLine(" YOU WIN! ");
             }
             else
             {
-                Console.WriteLine(" YOU LOSE.");
+                Console.WriteLine(" YOU LOSE. ");
             }
 
              Console.ReadLine();
