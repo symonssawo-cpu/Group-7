@@ -1,0 +1,25 @@
+using System;
+
+class Pattern                        
+{
+    static void Main()
+    {
+        int n = 6;
+
+        for (int i = 1; i <= n; i++)
+        {
+            for (int j = 1; j <= n; j++)
+            {
+                if (i == 1 || i == n)
+                    Console.Write("& ");
+                else if (j == 1 || j == n)
+                    Console.Write("* ");
+                else if (i == j)
+                    Console.Write("& ");
+                else
+                    Console.Write("* ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
