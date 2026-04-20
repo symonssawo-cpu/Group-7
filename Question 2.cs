@@ -1,6 +1,6 @@
 using System;
 
-class Pattern
+class Pattern                        
 {
     static void Main()
     {
