@@ -52,11 +52,11 @@ namespace NumberGame
                 }
 
                 // Show score at the end of the round
-                Console.WriteLine(" Total Score: "+ TotalScore);
+                Console.WriteLine("\n Total Score: "+ TotalScore);
             }
 
             // Final game results
-                Console.WriteLine("   GAME OVER  ");
+                Console.WriteLine("  \n GAME OVER  ");
                 Console.WriteLine("Your Final Score is: "+ TotalScore);
 
             if (TotalScore > 0)
