@@ -27,7 +27,7 @@ namespace NumberGame
                 int LuckyNumber = int.Parse(Console.ReadLine());
 
                 // Calculate the remainder
-                int remainder = luckyNumber % secretNumber;
+                int remainder = LuckyNumber % SecretNumber;
 
                 // Display the remainder 
                 Console.WriteLine($"The remainder is {remainder}.");
