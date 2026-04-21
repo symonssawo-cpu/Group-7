@@ -9,75 +9,49 @@ namespace CreditEvaluation
             Console.WriteLine("=== Credit Worthiness Evaluation System ===\n");
 
             // Get number of customers
-            int n = GetPositiveInteger("Enter the number of customers (n): ");
+            Console.Write("Enter the number of customers (n): ");
+            int n = int.Parse(Console.ReadLine());
 
-            for (int customer = 1; customer <= n; customer++)
+            for (int i = 1; i <= n; i++)
             {
-                Console.WriteLine($"\n--- Customer {customer} ---");
+                Console.WriteLine($"\n--- Customer {i} ---");
 
                 // Read credit limit
-                decimal creditLimit = GetPositiveDecimal("Enter customer's credit limit: ");
+                Console.Write("Enter credit limit: ");
+                double creditLimit = double.Parse(Console.ReadLine());
 
-                bool purchaseCompleted = false;
+                // Read price of the item
+                Console.Write("Enter price of the item: ");
+                double price = double.Parse(Console.ReadLine());
 
-                while (!purchaseCompleted)
+                double quantity;
+                double totalValue;
+
+                // Keep asking for quantity until the total is within credit limit
+                while (true)                                          // ← moved INSIDE the for loop
                 {
-                    // Read price per item
-                    decimal price = GetPositiveDecimal("Enter price per item: ");
+                    Console.Write("Enter quantity: ");
+                    quantity = double.Parse(Console.ReadLine());
 
-                    // Read quantity
-                    int quantity = GetPositiveInteger("Enter quantity to purchase: ");
-
-                    // Calculate total value of goods
-                    decimal totalValue = price * quantity;
-
-                    Console.WriteLine($"\nTotal value of goods: {totalValue:C}");
+                    totalValue = price * quantity;
 
                     if (totalValue > creditLimit)
                     {
                         Console.WriteLine("Sorry you cannot purchase goods worthy such a value on credit");
-                        Console.WriteLine("Please reduce the quantity and try again.\n");
-                        // Loop continues - customer re-enters quantity (and price if needed)
+                        // Loop again to re-enter quantity
                     }
                     else
                     {
                         Console.WriteLine("Thank You for purchasing from us");
-                        Console.WriteLine($"Purchase value: {totalValue:C}");
-                        purchaseCompleted = true;
+                        Console.WriteLine($"Value of the purchase: {totalValue}");
+                        break; // Exit the while loop when purchase is approved
                     }
                 }
-            }
 
-            Console.WriteLine("\n=== All customers processed. Thank you! ===");
+            }  // ← for loop ends HERE (after the while block)
+
+            Console.WriteLine("\n=== All customers processed. Thank you! ===");  // ← moved OUTSIDE for loop
             Console.ReadKey();
-        }
-
-        // Helper method to get positive integer input
-        static int GetPositiveInteger(string prompt)
-        {
-            while (true)
-            {
-                Console.Write(prompt);
-                if (int.TryParse(Console.ReadLine(), out int value) && value > 0)
-                {
-                    return value;
-                }
-                Console.WriteLine("Invalid input! Please enter a positive integer.");
-            }
-        }
-
-        // Helper method to get positive decimal input
-        static decimal GetPositiveDecimal(string prompt)
-        {
-            while (true)
-            {
-                Console.Write(prompt);
-                if (decimal.TryParse(Console.ReadLine(), out decimal value) && value > 0)
-                {
-                    return value;
-                }
-                Console.WriteLine("Invalid input! Please enter a positive number.");
-            }
         }
     }
 }
