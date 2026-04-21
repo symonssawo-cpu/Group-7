@@ -28,7 +28,7 @@ namespace CreditEvaluation
                 double totalValue;
 
                 // Keep asking for quantity until the total is within credit limit
-                while (true)                                          // ← moved INSIDE the for loop
+                while (true)                                          
                 {
                     Console.Write("Enter quantity: ");
                     quantity = double.Parse(Console.ReadLine());
