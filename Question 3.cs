@@ -48,9 +48,9 @@ namespace CreditEvaluation
                     }
                 }
 
-            }  // ← for loop ends HERE (after the while block)
+            } 
 
-            Console.WriteLine("\n=== All customers processed. Thank you! ===");  // ← moved OUTSIDE for loop
+            Console.WriteLine("\n=== All customers processed. Thank you! ===");  
             Console.ReadKey();
         }
     }
